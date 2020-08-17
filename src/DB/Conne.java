@@ -1,26 +1,42 @@
-package DB;
+package Dao;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.SQLException;
 
-public class Conne{
-	private Connection con ;
-	private Statement stm ;
- public void connect() {
-	 class.forname("con.mysql.jdbc.Driver");
-	 String url="jdbc:mysql://localhost/BDJEE";
-	 con=DriverManager.getConnection(URL,"root","");
-	 stm=con.createStatement();
- }	
-public int MAJ(String sql) {
-	return stm.executeUpdate(sql);
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.ResultSet;
+import com.mysql.jdbc.Statement;
+
+public class Connexion {
+private Connection con;
+private Statement stm;
+
+
+public void connect () throws Exception {
+	
+	
+	Class.forName("com.mysql.jdbc.Driver");
+	
+	 String url = "jdbc:mysql://localhost/mydb";
+	 con=(Connection) DriverManager.getConnection(url, "root","");
+	 stm=(Statement) con.createStatement();
 }
-public resultSet Select (String sql) {
-	return stm.executeQuery(sql);
-}
-public void Disconnect() {
+
+public void disconnect () throws Exception {
 	stm.close();
 	con.close();
 }
+
+public int Maj(String sql ) throws Exception {
+
+	return stm.executeUpdate(sql);
+	
 }
+public ResultSet Select(String sql) throws SQLException {
+	
+	return (ResultSet) stm.executeQuery(sql);
+
+}
+
+}
+

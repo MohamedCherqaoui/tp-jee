@@ -1,66 +1,145 @@
 package tp;
 
-public personne extends Httpservlet() {
-	private int id ;
-	private string nom ;
-	private string prenom ;
-	private string login ;
-	private String password	 ;
+import model.Override;
+import model.Personne;
+import model.String;
 
- public personne() {
-	 this.id = "o";
-	 this.nom = "";
-	 this.prenom = "";
-	 this.login = "";
-	 this.password = "";
- }
- public personne(int id, String nom ,String prenom , String login , String password) {
-	 this.id = id;
-	 this.nom = nom;
-	 this.prenom = prenom;
-	 this.login = login;
-	 this.password = password;
- }
- public personne(String nom ,String prenom , String login , String password) {
-	 this.nom = nom;
-	 this.prenom = prenom;
-	 this.login = login;
-	 this.password = password;
- }
- public personne(personne p) {
-	 this.nom = p.nom;
-	 this.prenom = p.prenom;
-	 this.login = p.login;
-	 this.password = p.password;
- }
- public String getnom() {
-	 return nom ;
- }
-  public void setnom () {
-	  this.nom=nom;
-  }
-  public String getprenom() {
-  return prenom ;
- }
-  public void setprenom () {
-  this.prenom=prenom;
- }
- public String getlogin() {
- return login ;
- }
- public void setlogin () {
-  this.login=login;
- }
- public String getpassword() {
-  return password ;
- }
- public void setpassword () {
- this.password=password;
- }
-@override
-public String toString() {
-	return personne ("nom :"+this.nom+"prenom :"+this.prenom+"login :"+this.login+"password"+this.password;)
- }		
-}
+public class Personne {
+	private int id;
+	private String Nom; 
+	private String Prenom; 
+	private String login; 
+	private String Password ;
+	
+	
+	
+	public Personne() {
+		super();
+	}
 
+
+
+	public Personne(int id, String Nom, String Prenom, String login, String Password) {
+		this.id = id;
+		this.Nom = Nom;
+		this.Prenom = Prenom;
+		this.login = login;
+		this.Password = Password;
+	} 
+
+	public Personne(String Nom, String Prenom, String login, String Password) {
+	
+		this.Nom = Nom;
+		this.Prenom = Prenom;
+		this.login = login;
+		this.Password = Password;
+	} 
+	
+	
+	public Personne(Personne P) {
+		this.id = P.id;
+		this.Nom = P.Nom;
+		this.Prenom = P.Prenom;
+		this.login = P.login;
+		this.Password = P.Password;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getNom() {
+		return Nom;
+	}
+
+
+
+	public void setNom(String nom) {
+		Nom = nom;
+	}
+
+
+
+	public String getPrenom() {
+		return Prenom;
+	}
+
+
+
+	public void setPrenom(String prenom) {
+		Prenom = prenom;
+	}
+
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+
+
+	public String getPassword() {
+		return Password;
+	}
+
+
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Personne [id=" + id + ", Nom=" + Nom + ", Prenom=" + Prenom + ", login=" + login + ", Password="
+				+ Password + "]";
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,37 +1,63 @@
-package DB;
+package Dao;
 
-import java.sql.ResultSet;
+import java.util.ArrayList;
 
-public class DAOpersonne {
- private connexion c=new connexion();
-public int supprimer (int id) {
-	c.conenct();
-	int res = c.MAJ("Delet from personne where id="+id);
-	c.disconnect;
-	return res ;
-}
-public int supprimer (int id) {
-	c.conenct();
-	int res = c.MAJ("insert into personne (nom,prenom,login,password)values('"+p.getnom()+"','"+p.getprenom()+"','"+p.getlogin()+"','"+p.getpassword()+"')"+);
-	c.disconnect;
-	return res ;
-}
-public int modifier (personne p){
-	c.connect();
-	int res = c.MAJ("update personne set nom='"+p.getnom()+"',prenom='"+p.getprenom()+"',login='"+p.getlogin()+"',password='"+p.getpassword()+"'where id="p.getid"");
-	c.Disconnect();
-	return res;
-}  
-public Arraylist <personne> listepersonne(){
-	personne p=null;
-	Arraylist<personne> personne =new Arraylist<personne>();
-	c.connect();
-	ResultSet res=c.select("Select * from personne");
-	while (res.next()) {
-		p=new personne (res.get.int(1),res.get.string(2),res.get.string(3),res.get.string(4),res.get.string(5));
-		personne.add(p);
+import com.mysql.jdbc.ResultSet;
+
+import model.Personne;
+
+public class DaoPersonne {
+
+	private Connexion c=new Connexion();
+	public int Suprimer(int id) throws Exception {
+		c.connect();
+		int res = c.Maj("delet from Personne where id="+id);
+		c.disconnect();
+		return res;
 	}
-	c.disconnect();
-	return personne;
+	
+	public int Modif(Personne  P) throws Exception {
+		c.connect();
+		int res = c.Maj("Update Personne set Nom='"+P.getNom()+"', Prenom='"+P.getPrenom()+"',Login ='"+P.getLogin()+"',Password ='"+P.getPassword()+"' WHERE id ='+P.getId()' ");
+		c.disconnect();
+		return res;
+	}
+	
+	
+	public int Ajoute(Personne  P) throws Exception {
+		c.connect();
+		int res = c.Maj("insert into  Personne (Nom,Prenom,Login,Password) VALUES ('"+P.getNom()+"','"+P.getPrenom()+"','"+P.getLogin()+"','"+P.getPassword()+"') ");
+		c.disconnect();
+		return res;
+	}
+
+public ArrayList<Personne> listePersonne() throws Exception{
+	
+	Personne p=null;
+	ArrayList<Personne> Personnes=new ArrayList <Personne>();
+	c.connect();
+	ResultSet res =c.Select("select * from Personne");
+	while(res.next()) {
+		p=new Personne(res.getInt(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5));
+		Personnes.add(p);
+		
+	}
+	return Personnes;
+	
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
